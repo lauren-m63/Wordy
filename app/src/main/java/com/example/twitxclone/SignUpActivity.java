@@ -40,6 +40,7 @@ public class SignUpActivity extends AppCompatActivity {
               user.setEmail(usernameText.getText().toString());
               usersRef.child(uid).setValue(user);
                 Toast.makeText(getApplicationContext(), "good", Toast.LENGTH_SHORT).show();
+
             }
             else{
                 Exception e = task.getException();
@@ -78,6 +79,9 @@ public class SignUpActivity extends AppCompatActivity {
         // adding user input to the database as an object
 
         auth.createUserWithEmailAndPassword(usern, password).addOnCompleteListener(this, listener);
+
+        Intent intent = new Intent(this, MessagesActivity.class);
+        startActivity(intent);
     }
 
 }
