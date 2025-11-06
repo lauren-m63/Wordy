@@ -41,6 +41,9 @@ public class SignUpActivity extends AppCompatActivity {
               usersRef.child(uid).setValue(user);
                 Toast.makeText(getApplicationContext(), "good", Toast.LENGTH_SHORT).show();
 
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+
             }
             else{
                 Exception e = task.getException();
@@ -80,8 +83,6 @@ public class SignUpActivity extends AppCompatActivity {
 
         auth.createUserWithEmailAndPassword(usern, password).addOnCompleteListener(this, listener);
 
-        Intent intent = new Intent(this, MessagesActivity.class);
-        startActivity(intent);
     }
 
 }

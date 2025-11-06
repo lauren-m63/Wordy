@@ -7,4 +7,5 @@
     <string name="write_msg">Message Here</string>
     <string name="dob_label">DOB</string>
     <string name="user_label">User</string>
+    <string name="login">login</string>
 </resources>
