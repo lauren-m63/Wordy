@@ -2,10 +2,13 @@ package com.example.twitxclone.model;
 
 public class Word {
 
-    public Word() {}
     public static final String WORD_KEY  = "WORDV";
 
     String word;
+
+    public Word() {}
+
+    public Word(String word) { this.word = word; }
 
     public String getWord() {
         return word;
