@@ -2,6 +2,7 @@ package com.example.twitxclone.model;
 
 public class Word {
 
+    public Word() {}
     public static final String WORD_KEY  = "WORDV";
 
     String word;

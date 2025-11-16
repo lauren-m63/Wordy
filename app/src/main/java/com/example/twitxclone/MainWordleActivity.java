@@ -8,7 +8,9 @@ import androidx.activity.EdgeToEdge;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.twitxclone.model.Word;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class MainWordleActivity extends AppCompatActivity {
@@ -69,6 +71,9 @@ public class MainWordleActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.main_wordle_activity);
 
+        auth = FirebaseAuth.getInstance();
+        database= FirebaseDatabase.getInstance();
+
         addWord = findViewById(R.id.AddWordButton);
         // ROW 1
         button11 = findViewById(R.id.button1_1);
@@ -112,5 +117,17 @@ public class MainWordleActivity extends AppCompatActivity {
         button64 = findViewById(R.id.button6_4);
         button65 = findViewById(R.id.button6_5);
 
-    }
+
+        DatabaseReference wordsRef = database.getReference("words");
+        String[] myWords = {"apple", "bread", "water", "lover", "taylor"};
+        for (String w : myWords) {
+            // Create a Word object
+            Word word = new Word();
+            word.setWord(w);
+
+            // Push it to Firebase (creates a unique ID for each word)
+            wordsRef.push().setValue(word);
+        }
+
+    } //END ON CREATE
 }
