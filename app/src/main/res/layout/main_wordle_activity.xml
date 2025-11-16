@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+<!--    first row -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/button1.1"
+            android:layout_width="70dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_height="70dp"
+            android:text="" />
+        <Button
+            android:id="@+id/button1.2"
+            android:layout_marginEnd="5dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="" />
+        <Button
+            android:id="@+id/button1.3"
+            android:layout_marginEnd="5dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="" />
+        <Button
+            android:id="@+id/button1.4"
+            android:layout_marginEnd="5dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="" />
+        <Button
+            android:id="@+id/button1.5"
+            android:layout_marginEnd="5dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="" />
+    </TableRow>
+    <!--   END first row -->
+
+
+
+    <!--    second row -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/button2.1"
+            android:layout_width="70dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_height="70dp"
+            android:text="" />
+        <Button
+            android:id="@+id/button2.2"
+            android:layout_marginEnd="5dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="" />
+        <Button
+            android:id="@+id/button2.3"
+            android:layout_marginEnd="5dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="" />
+        <Button
+            android:id="@+id/button2.4"
+            android:layout_marginEnd="5dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="" />
+        <Button
+            android:id="@+id/button2.5"
+            android:layout_marginEnd="5dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="" />
+    </TableRow>
+    <!--    END second row -->
+
+
+
+    <!--    third row -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/button3.1"
+            android:layout_width="70dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_height="70dp"
+            android:text="" />
+        <Button
+            android:id="@+id/button4.2"
+            android:layout_marginEnd="5dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="" />
+        <Button
+            android:id="@+id/button5.3"
+            android:layout_marginEnd="5dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="" />
+        <Button
+            android:id="@+id/button5.4"
+            android:layout_marginEnd="5dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="" />
+        <Button
+            android:id="@+id/button5.5"
+            android:layout_marginEnd="5dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="" />
+    </TableRow>
+    <!--   END third row -->
+
+</TableLayout>
