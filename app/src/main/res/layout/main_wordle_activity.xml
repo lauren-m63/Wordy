@@ -7,6 +7,7 @@
 <!--    first row -->
     <TableRow
         android:layout_width="match_parent"
+        android:layout_marginTop="80dp"
         android:layout_height="wrap_content">
 
         <Button
@@ -48,6 +49,7 @@
     <!--    second row -->
     <TableRow
         android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
         android:layout_height="wrap_content">
 
         <Button
@@ -89,6 +91,7 @@
     <!--    third row -->
     <TableRow
         android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
         android:layout_height="wrap_content">
 
         <Button
@@ -99,7 +102,88 @@
             android:layout_height="70dp"
             android:text="" />
         <Button
+            android:id="@+id/button3.2"
+            android:layout_marginEnd="5dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="" />
+        <Button
+            android:id="@+id/button3.3"
+            android:layout_marginEnd="5dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="" />
+        <Button
+            android:id="@+id/button3.4"
+            android:layout_marginEnd="5dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="" />
+        <Button
+            android:id="@+id/button3.5"
+            android:layout_marginEnd="5dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="" />
+    </TableRow>
+    <!--   END third row -->
+
+    <!--    fourth row -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/button4.1"
+            android:layout_width="70dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_height="70dp"
+            android:text="" />
+        <Button
             android:id="@+id/button4.2"
+            android:layout_marginEnd="5dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="" />
+        <Button
+            android:id="@+id/button4.3"
+            android:layout_marginEnd="5dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="" />
+        <Button
+            android:id="@+id/button4.4"
+            android:layout_marginEnd="5dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="" />
+        <Button
+            android:id="@+id/button4.5"
+            android:layout_marginEnd="5dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="" />
+    </TableRow>
+    <!--   END fourth row -->
+
+    <!--    fifth row -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content">
+
+
+        <Button
+            android:id="@+id/button5.1"
+            android:layout_width="70dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_height="70dp"
+            android:text="" />
+        <Button
+            android:id="@+id/button5.2"
             android:layout_marginEnd="5dp"
             android:layout_width="70dp"
             android:layout_height="70dp"
@@ -123,6 +207,47 @@
             android:layout_height="70dp"
             android:text="" />
     </TableRow>
-    <!--   END third row -->
+    <!--   END fifth row -->
+
+
+    <!--    sixth row -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/button6.1"
+            android:layout_width="70dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_height="70dp"
+            android:text="" />
+        <Button
+            android:id="@+id/button6.2"
+            android:layout_marginEnd="5dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="" />
+        <Button
+            android:id="@+id/button6.3"
+            android:layout_marginEnd="5dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="" />
+        <Button
+            android:id="@+id/button6.4"
+            android:layout_marginEnd="5dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="" />
+        <Button
+            android:id="@+id/button6.5"
+            android:layout_marginEnd="5dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="" />
+    </TableRow>
+    <!--   END sixth row -->
 
 </TableLayout>
