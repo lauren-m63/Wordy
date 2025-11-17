@@ -124,7 +124,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Add Word"
+            android:text="Add New Word"
             android:layout_margin="5dp" />
 
         <Button
@@ -133,6 +133,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Submit Word"
+            android:layout_margin="5dp" />
+
+        <Button
+            android:id="@+id/ResetButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Reset Game"
             android:layout_margin="5dp" />
     </TableRow>
 

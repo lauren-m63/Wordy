@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -31,6 +32,8 @@ public class MainWordleActivity extends AppCompatActivity {
     String secretWord;
     ArrayList<String> list;
     int totalPoints= 0;
+    EditText[][] allRows;
+    int currentRow = 0;
 
 
     // ROW 1
@@ -78,6 +81,7 @@ public class MainWordleActivity extends AppCompatActivity {
 
     Button addWordButton;
     Button submitButton;
+    Button resetButton;
 
 
     @Override
@@ -88,12 +92,6 @@ public class MainWordleActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         database= FirebaseDatabase.getInstance();
-
-        addWordButton = findViewById(R.id.AddWordButton);
-        submitButton = findViewById(R.id.submitButton);
-
-        addWordButton.setOnClickListener(addWordlistener);
-        submitButton.setOnClickListener(submitListener);
 
 
         // ROW 1
@@ -137,6 +135,26 @@ public class MainWordleActivity extends AppCompatActivity {
         button63 = findViewById(R.id.button6_3);
         button64 = findViewById(R.id.button6_4);
         button65 = findViewById(R.id.button6_5);
+
+        // array of edit text so i can keep track of what row im on i forgot abt
+        allRows = new EditText[][] {
+                {button11, button12, button13, button14, button15},
+                {button21, button22, button23, button24, button25},
+                {button31, button32, button33, button34, button35},
+                {button41, button42, button43, button44, button45},
+                {button51, button52, button53, button54, button55},
+                {button61, button62, button63, button64, button65}
+        };
+
+
+        addWordButton = findViewById(R.id.AddWordButton);
+        submitButton = findViewById(R.id.submitButton);
+        resetButton = findViewById(R.id.ResetButton);
+
+        addWordButton.setOnClickListener(addWordlistener);
+        submitButton.setOnClickListener(submitListener);
+        resetButton.setOnClickListener(resetListener);
+
 
 
         DatabaseReference wordsRef = database.getReference("words");
@@ -192,49 +210,115 @@ public class MainWordleActivity extends AppCompatActivity {
             // also to clear the input they put in
             // maybe ill start with a play button at the beginning and so it does it there too
 
-        }
+            DatabaseReference wordsRef = database.getReference("words");
+            // im just pasting inefficient but whatevr
+            wordsRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) { //runs even if data isn't changed- stupid name
+                    ArrayList<String> list = new ArrayList<>(); // this is global
+
+                    for (DataSnapshot child : snapshot.getChildren()) {
+                        Word wordObj = child.getValue(Word.class);
+                        if (wordObj != null) {
+                            list.add(wordObj.getWord()); // its a hashmap in my thing ugh this makes it deal with object instead of string
+                        }
+                    }
+
+                    if (!list.isEmpty()) {
+                        String random = list.get(new Random().nextInt(list.size()));
+                        secretWord= random.toLowerCase(); //making the random word the secret word variable then i want to check the letters against their selection
+                        Log.i("LAUREN", secretWord);
+                    }
+                } // end on data change
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+            for (int r = 0; r < allRows.length; r++) {
+                for (int c = 0; c < allRows[r].length; c++) {
+                    allRows[r][c].setText(""); // clear text
+                    allRows[r][c].setBackgroundColor(ContextCompat.getColor(v.getContext(), R.color.white)); // reset color
+                }
+            }
+
+// Reset to first row for new guesses
+            currentRow = 0;
+            totalPoints = 0;
+
+
+        } // end on click
     }; // end reset listener
 
     View.OnClickListener submitListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+
             // now my random word is seceret word and should be checked against it
 
-            char first  = secretWord.charAt(0); // getting the first .. letters of each thing splitting into char- then ill check each button against
-            char second = secretWord.charAt(1);
-            char third = secretWord.charAt(2);
-            char fourth = secretWord.charAt(3);
-            char fifth = secretWord.charAt(4);
+//            char first  = secretWord.charAt(0); // getting the first .. letters of each thing splitting into char- then ill check each button against
+//            char second = secretWord.charAt(1);
+//            char third = secretWord.charAt(2);
+//            char fourth = secretWord.charAt(3);
+//            char fifth = secretWord.charAt(4);
 
-            Log.i("LAURENWORDDD", String.valueOf(first) + String.valueOf(second));
+         //   Log.i("LAURENWORDDD", String.valueOf(first) + String.valueOf(second));
 
-            if (button11.getText().toString().equals(String.valueOf(first))){ //have to convert to string bc char never ==
-                button11.setBackgroundColor(ContextCompat.getColor(v.getContext(), R.color.green));
-                totalPoints++;
+            // looping so i dont have to do every freaking one individual for every row crazy style
+            // im going to loop for the each rows though im going to copy hmm
+          //  EditText[] editTextsROW1 = {button11, button12, button13, button14, button15};
+          //  char[] targetLetters = {first, second, third, fourth, fifth};
+
+            if (currentRow >= allRows.length) return;
+
+            EditText[] row = allRows[currentRow];           // current row
+            char[] targetLetters = secretWord.toCharArray(); // secret word letters
+            totalPoints = 0;                                 // reset for this guess
+
+            // Loop through each EditText in the current row
+            for (int i = 0; i < row.length; i++) {
+                String input = row[i].getText().toString();
+
+                if (input.equalsIgnoreCase(String.valueOf(targetLetters[i]))) {
+                    row[i].setBackgroundColor(ContextCompat.getColor(v.getContext(), R.color.green));
+                    totalPoints++;
+                }
+                else if (secretWord.contains(input)) {
+                    // wrong position tellow time
+                    row[i].setBackgroundColor(ContextCompat.getColor(v.getContext(), R.color.yellow));
+                }
+                else {
+                    row[i].setBackgroundColor(ContextCompat.getColor(v.getContext(), R.color.gray));
+                }
             }
-            if (button12.getText().toString().equals(String.valueOf(second))){
-                button11.setBackgroundColor(ContextCompat.getColor(v.getContext(), R.color.green));
-                totalPoints++;
+
+            // Log points for debug
+            Log.i("Wordle", "Points this guess: " + totalPoints);
+
+            // Move to the next row for the next guess
+            currentRow++;
+
+            // Optionally check for win/lose
+            if (totalPoints == targetLetters.length) {
+                Log.i("Wordle", "win");
+                Toast.makeText(v.getContext(), " you guessed it, hit the reset button to play again", Toast.LENGTH_SHORT).show();
+            } else if (currentRow >= allRows.length) {
+                Log.i("Wordle", "No more guesses! The word was: " + secretWord);
+                Toast.makeText(v.getContext(), "not winner", Toast.LENGTH_SHORT).show();
+
             }
-            if (button13.getText().toString().equals(String.valueOf(third))){
-                button11.setBackgroundColor(ContextCompat.getColor(v.getContext(), R.color.green));
-                totalPoints++;
-            }
-            if (button14.getText().toString().equals(String.valueOf(fourth))){
-                button11.setBackgroundColor(ContextCompat.getColor(v.getContext(), R.color.green));
-                totalPoints++;
-            }
-            if (button15.getText().toString().equals(String.valueOf(fifth))){
-                button11.setBackgroundColor(ContextCompat.getColor(v.getContext(), R.color.green));
-                totalPoints++;
-            }
+        }
+
+
+
 
             //button11.setBackgroundColor(ContextCompat.getColor(v.getContext(), R.color.green));
             //button11.setBackgroundColor(ContextCompat.getColor(v.getContext(), R.color.gray));
             //button11.setBackgroundColor(ContextCompat.getColor(v.getContext(), R.color.yellow));
 
-        } // end on click
-    };
+        } ;// end on click
 
 
     View.OnClickListener addWordlistener = new View.OnClickListener() {
