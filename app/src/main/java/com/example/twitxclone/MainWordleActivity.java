@@ -1,12 +1,15 @@
 package com.example.twitxclone;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.example.twitxclone.model.Word;
 import com.google.firebase.auth.FirebaseAuth;
@@ -62,7 +65,8 @@ public class MainWordleActivity extends AppCompatActivity {
     EditText button64;
     EditText button65;
 
-    Button addWord;
+    Button addWordButton;
+    Button submitButton;
 
 
     @Override
@@ -74,7 +78,13 @@ public class MainWordleActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         database= FirebaseDatabase.getInstance();
 
-        addWord = findViewById(R.id.AddWordButton);
+        addWordButton = findViewById(R.id.AddWordButton);
+        submitButton = findViewById(R.id.submitButton);
+
+        addWordButton.setOnClickListener(addWordlistener);
+        submitButton.setOnClickListener(submitListener);
+
+
         // ROW 1
         button11 = findViewById(R.id.button1_1);
         button12 = findViewById(R.id.button1_2);
@@ -119,15 +129,41 @@ public class MainWordleActivity extends AppCompatActivity {
 
 
         DatabaseReference wordsRef = database.getReference("words");
-        String[] myWords = {"apple", "bread", "water", "lover", "taylor"};
-        for (String w : myWords) {
-            // Create a Word object
-            Word word = new Word();
-            word.setWord(w);
+        wordsRef.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                if (!task.getResult().exists()) {
+                    String[] myWords = {"apple", "bread", "water", "lover", "taylor"};
+                    for (String w : myWords) {
+                        Word word = new Word();
+                        word.setWord(w);
+                        wordsRef.push().setValue(word);
+                    }
+                }
+            }
+        }); // end on complete listener
 
-            // Push it to Firebase (creates a unique ID for each word)
-            wordsRef.push().setValue(word);
-        }
 
     } //END ON CREATE
+
+    View.OnClickListener submitListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            // i want to randomly get word from database and then check the selection against that words
+            // i should maybe split up into different variables and check is it .equals or if it exists then color sqaure
+
+            //button11.setBackgroundColor(ContextCompat.getColor(v.getContext(), R.color.green));
+            //button11.setBackgroundColor(ContextCompat.getColor(v.getContext(), R.color.gray));
+            //button11.setBackgroundColor(ContextCompat.getColor(v.getContext(), R.color.yellow));
+
+        }
+    };
+
+
+    View.OnClickListener addWordlistener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(v.getContext(), AddWordActivity.class);
+            startActivity(intent);
+        }
+    }; // end on click listener
 }

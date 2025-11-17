@@ -21,4 +21,11 @@ public class Word {
 //            String lower = word.toLowerCase();
 //            lower. }
     }
+
+    @Override
+    public String toString() {
+        return "Word{" +
+                "word='" + word + '\'' +
+                '}';
+    }
 }

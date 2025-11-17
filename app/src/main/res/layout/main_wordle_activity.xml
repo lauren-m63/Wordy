@@ -1,262 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="10dp">
 
-    <!-- first row -->
+    <!-- ROW 1 -->
     <TableRow
         android:layout_width="match_parent"
-        android:layout_marginTop="80dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp">
 
         <EditText
             android:id="@+id/button1_1"
-            android:layout_width="70dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginStart="5dp"
+            android:layout_width="0dp"
             android:layout_height="70dp"
-            android:text="" />
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:text=""
+            android:gravity="center"
+            android:inputType="text" />
+
         <EditText
             android:id="@+id/button1_2"
-            android:layout_marginEnd="5dp"
-            android:layout_width="70dp"
+            android:layout_width="0dp"
             android:layout_height="70dp"
-            android:text="" />
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:inputType="text" />
+
         <EditText
             android:id="@+id/button1_3"
-            android:layout_marginEnd="5dp"
-            android:layout_width="70dp"
+            android:layout_width="0dp"
             android:layout_height="70dp"
-            android:text="" />
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:inputType="text" />
+
         <EditText
             android:id="@+id/button1_4"
-            android:layout_marginEnd="5dp"
-            android:layout_width="70dp"
+            android:layout_width="0dp"
             android:layout_height="70dp"
-            android:text="" />
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:inputType="text" />
+
         <EditText
             android:id="@+id/button1_5"
-            android:layout_marginEnd="5dp"
-            android:layout_width="70dp"
+            android:layout_width="0dp"
             android:layout_height="70dp"
-            android:text="" />
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:inputType="text" />
     </TableRow>
 
-    <!-- second row -->
+    <!-- ROWS 2-6: repeat same structure -->
     <TableRow
         android:layout_width="match_parent"
-        android:layout_marginTop="20dp"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/button2_1"
-            android:layout_width="70dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginStart="5dp"
-            android:layout_height="70dp"
-            android:text="" />
-        <EditText
-            android:id="@+id/button2_2"
-            android:layout_marginEnd="5dp"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:text="" />
-        <EditText
-            android:id="@+id/button2_3"
-            android:layout_marginEnd="5dp"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:text="" />
-        <EditText
-            android:id="@+id/button2_4"
-            android:layout_marginEnd="5dp"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:text="" />
-        <EditText
-            android:id="@+id/button2_5"
-            android:layout_marginEnd="5dp"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:text="" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+        <EditText android:id="@+id/button2_1" android:layout_width="0dp" android:layout_height="70dp" android:layout_weight="1" android:layout_margin="5dp" android:gravity="center" android:inputType="text"/>
+        <EditText android:id="@+id/button2_2" android:layout_width="0dp" android:layout_height="70dp" android:layout_weight="1" android:layout_margin="5dp" android:gravity="center" android:inputType="text"/>
+        <EditText android:id="@+id/button2_3" android:layout_width="0dp" android:layout_height="70dp" android:layout_weight="1" android:layout_margin="5dp" android:gravity="center" android:inputType="text"/>
+        <EditText android:id="@+id/button2_4" android:layout_width="0dp" android:layout_height="70dp" android:layout_weight="1" android:layout_margin="5dp" android:gravity="center" android:inputType="text"/>
+        <EditText android:id="@+id/button2_5" android:layout_width="0dp" android:layout_height="70dp" android:layout_weight="1" android:layout_margin="5dp" android:gravity="center" android:inputType="text"/>
     </TableRow>
 
-    <!-- third row -->
     <TableRow
         android:layout_width="match_parent"
-        android:layout_marginTop="20dp"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/button3_1"
-            android:layout_width="70dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginStart="5dp"
-            android:layout_height="70dp"
-            android:text="" />
-        <EditText
-            android:id="@+id/button3_2"
-            android:layout_marginEnd="5dp"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:text="" />
-        <EditText
-            android:id="@+id/button3_3"
-            android:layout_marginEnd="5dp"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:text="" />
-        <EditText
-            android:id="@+id/button3_4"
-            android:layout_marginEnd="5dp"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:text="" />
-        <EditText
-            android:id="@+id/button3_5"
-            android:layout_marginEnd="5dp"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:text="" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+        <EditText android:id="@+id/button3_1" android:layout_width="0dp" android:layout_height="70dp" android:layout_weight="1" android:layout_margin="5dp" android:gravity="center" android:inputType="text"/>
+        <EditText android:id="@+id/button3_2" android:layout_width="0dp" android:layout_height="70dp" android:layout_weight="1" android:layout_margin="5dp" android:gravity="center" android:inputType="text"/>
+        <EditText android:id="@+id/button3_3" android:layout_width="0dp" android:layout_height="70dp" android:layout_weight="1" android:layout_margin="5dp" android:gravity="center" android:inputType="text"/>
+        <EditText android:id="@+id/button3_4" android:layout_width="0dp" android:layout_height="70dp" android:layout_weight="1" android:layout_margin="5dp" android:gravity="center" android:inputType="text"/>
+        <EditText android:id="@+id/button3_5" android:layout_width="0dp" android:layout_height="70dp" android:layout_weight="1" android:layout_margin="5dp" android:gravity="center" android:inputType="text"/>
     </TableRow>
 
-    <!-- fourth row -->
     <TableRow
         android:layout_width="match_parent"
-        android:layout_marginTop="20dp"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/button4_1"
-            android:layout_width="70dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginStart="5dp"
-            android:layout_height="70dp"
-            android:text="" />
-        <EditText
-            android:id="@+id/button4_2"
-            android:layout_marginEnd="5dp"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:text="" />
-        <EditText
-            android:id="@+id/button4_3"
-            android:layout_marginEnd="5dp"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:text="" />
-        <EditText
-            android:id="@+id/button4_4"
-            android:layout_marginEnd="5dp"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:text="" />
-        <EditText
-            android:id="@+id/button4_5"
-            android:layout_marginEnd="5dp"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:text="" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+        <EditText android:id="@+id/button4_1" android:layout_width="0dp" android:layout_height="70dp" android:layout_weight="1" android:layout_margin="5dp" android:gravity="center" android:inputType="text"/>
+        <EditText android:id="@+id/button4_2" android:layout_width="0dp" android:layout_height="70dp" android:layout_weight="1" android:layout_margin="5dp" android:gravity="center" android:inputType="text"/>
+        <EditText android:id="@+id/button4_3" android:layout_width="0dp" android:layout_height="70dp" android:layout_weight="1" android:layout_margin="5dp" android:gravity="center" android:inputType="text"/>
+        <EditText android:id="@+id/button4_4" android:layout_width="0dp" android:layout_height="70dp" android:layout_weight="1" android:layout_margin="5dp" android:gravity="center" android:inputType="text"/>
+        <EditText android:id="@+id/button4_5" android:layout_width="0dp" android:layout_height="70dp" android:layout_weight="1" android:layout_margin="5dp" android:gravity="center" android:inputType="text"/>
     </TableRow>
 
-    <!-- fifth row -->
     <TableRow
         android:layout_width="match_parent"
-        android:layout_marginTop="20dp"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/button5_1"
-            android:layout_width="70dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginStart="5dp"
-            android:layout_height="70dp"
-            android:text="" />
-        <EditText
-            android:id="@+id/button5_2"
-            android:layout_marginEnd="5dp"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:text="" />
-        <EditText
-            android:id="@+id/button5_3"
-            android:layout_marginEnd="5dp"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:text="" />
-        <EditText
-            android:id="@+id/button5_4"
-            android:layout_marginEnd="5dp"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:text="" />
-        <EditText
-            android:id="@+id/button5_5"
-            android:layout_marginEnd="5dp"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:text="" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+        <EditText android:id="@+id/button5_1" android:layout_width="0dp" android:layout_height="70dp" android:layout_weight="1" android:layout_margin="5dp" android:gravity="center" android:inputType="text"/>
+        <EditText android:id="@+id/button5_2" android:layout_width="0dp" android:layout_height="70dp" android:layout_weight="1" android:layout_margin="5dp" android:gravity="center" android:inputType="text"/>
+        <EditText android:id="@+id/button5_3" android:layout_width="0dp" android:layout_height="70dp" android:layout_weight="1" android:layout_margin="5dp" android:gravity="center" android:inputType="text"/>
+        <EditText android:id="@+id/button5_4" android:layout_width="0dp" android:layout_height="70dp" android:layout_weight="1" android:layout_margin="5dp" android:gravity="center" android:inputType="text"/>
+        <EditText android:id="@+id/button5_5" android:layout_width="0dp" android:layout_height="70dp" android:layout_weight="1" android:layout_margin="5dp" android:gravity="center" android:inputType="text"/>
     </TableRow>
 
-    <!-- sixth row -->
     <TableRow
         android:layout_width="match_parent"
-        android:layout_marginTop="20dp"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/button6_1"
-            android:layout_width="70dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginStart="5dp"
-            android:layout_height="70dp"
-            android:text="" />
-        <EditText
-            android:id="@+id/button6_2"
-            android:layout_marginEnd="5dp"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:text="" />
-        <EditText
-            android:id="@+id/button6_3"
-            android:layout_marginEnd="5dp"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:text="" />
-        <EditText
-            android:id="@+id/button6_4"
-            android:layout_marginEnd="5dp"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:text="" />
-        <EditText
-            android:id="@+id/button6_5"
-            android:layout_marginEnd="5dp"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:text="" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+        <EditText android:id="@+id/button6_1" android:layout_width="0dp" android:layout_height="70dp" android:layout_weight="1" android:layout_margin="5dp" android:gravity="center" android:inputType="text"/>
+        <EditText android:id="@+id/button6_2" android:layout_width="0dp" android:layout_height="70dp" android:layout_weight="1" android:layout_margin="5dp" android:gravity="center" android:inputType="text"/>
+        <EditText android:id="@+id/button6_3" android:layout_width="0dp" android:layout_height="70dp" android:layout_weight="1" android:layout_margin="5dp" android:gravity="center" android:inputType="text"/>
+        <EditText android:id="@+id/button6_4" android:layout_width="0dp" android:layout_height="70dp" android:layout_weight="1" android:layout_margin="5dp" android:gravity="center" android:inputType="text"/>
+        <EditText android:id="@+id/button6_5" android:layout_width="0dp" android:layout_height="70dp" android:layout_weight="1" android:layout_margin="5dp" android:gravity="center" android:inputType="text"/>
     </TableRow>
 
-    <!-- extra EditText and Button row -->
+    <!-- BUTTONS ROW -->
     <TableRow
         android:layout_width="match_parent"
-        android:layout_marginTop="20dp"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="hi"
-            android:background="@color/green"
-            android:layout_marginTop="20dp" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
 
         <Button
             android:id="@+id/AddWordButton"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="hi"
-            android:layout_marginTop="20dp" />
+            android:layout_weight="1"
+            android:text="Add Word"
+            android:layout_margin="5dp" />
+
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Submit Word"
+            android:layout_margin="5dp" />
     </TableRow>
 
 </TableLayout>
