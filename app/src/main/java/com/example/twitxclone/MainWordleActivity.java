@@ -2,24 +2,35 @@ package com.example.twitxclone;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import com.example.twitxclone.model.Word;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class MainWordleActivity extends AppCompatActivity {
 
     FirebaseAuth auth;
     FirebaseDatabase database;
+    String secretWord;
+    ArrayList<String> list;
+    int totalPoints= 0;
 
 
     // ROW 1
@@ -86,7 +97,7 @@ public class MainWordleActivity extends AppCompatActivity {
 
 
         // ROW 1
-        button11 = findViewById(R.id.button1_1);
+        button11 = findViewById(R.id.button1_1); // these are actually ET but i had them as buttons first and didnt want to rename
         button12 = findViewById(R.id.button1_2);
         button13 = findViewById(R.id.button1_3);
         button14 = findViewById(R.id.button1_4);
@@ -143,19 +154,86 @@ public class MainWordleActivity extends AppCompatActivity {
         }); // end on complete listener
 
 
+        // rn this is jsut running which i want
+        //so single value event listener is lstengin for when its done fetching the data
+        wordsRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) { //runs even if data isn't changed- stupid name
+                ArrayList<String> list = new ArrayList<>(); // this is global
+
+                for (DataSnapshot child : snapshot.getChildren()) {
+                    Word wordObj = child.getValue(Word.class);
+                    if (wordObj != null) {
+                        list.add(wordObj.getWord()); // its a hashmap in my thing ugh this makes it deal with object instead of string
+                    }
+                }
+
+                if (!list.isEmpty()) {
+                    String random = list.get(new Random().nextInt(list.size()));
+                    secretWord= random.toLowerCase(); //making the random word the secret word variable then i want to check the letters against their selection
+                    Log.i("LAUREN", secretWord);
+                }
+            } // end on data change
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
     } //END ON CREATE
+
+    View.OnClickListener resetListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            // i want to get a new word from the database and let the person know a new word is there
+            // also to clear the input they put in
+            // maybe ill start with a play button at the beginning and so it does it there too
+
+        }
+    }; // end reset listener
 
     View.OnClickListener submitListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            // i want to randomly get word from database and then check the selection against that words
-            // i should maybe split up into different variables and check is it .equals or if it exists then color sqaure
+            // now my random word is seceret word and should be checked against it
+
+            char first  = secretWord.charAt(0); // getting the first .. letters of each thing splitting into char- then ill check each button against
+            char second = secretWord.charAt(1);
+            char third = secretWord.charAt(2);
+            char fourth = secretWord.charAt(3);
+            char fifth = secretWord.charAt(4);
+
+            Log.i("LAURENWORDDD", String.valueOf(first) + String.valueOf(second));
+
+            if (button11.getText().toString().equals(String.valueOf(first))){ //have to convert to string bc char never ==
+                button11.setBackgroundColor(ContextCompat.getColor(v.getContext(), R.color.green));
+                totalPoints++;
+            }
+            if (button12.getText().toString().equals(String.valueOf(second))){
+                button11.setBackgroundColor(ContextCompat.getColor(v.getContext(), R.color.green));
+                totalPoints++;
+            }
+            if (button13.getText().toString().equals(String.valueOf(third))){
+                button11.setBackgroundColor(ContextCompat.getColor(v.getContext(), R.color.green));
+                totalPoints++;
+            }
+            if (button14.getText().toString().equals(String.valueOf(fourth))){
+                button11.setBackgroundColor(ContextCompat.getColor(v.getContext(), R.color.green));
+                totalPoints++;
+            }
+            if (button15.getText().toString().equals(String.valueOf(fifth))){
+                button11.setBackgroundColor(ContextCompat.getColor(v.getContext(), R.color.green));
+                totalPoints++;
+            }
 
             //button11.setBackgroundColor(ContextCompat.getColor(v.getContext(), R.color.green));
             //button11.setBackgroundColor(ContextCompat.getColor(v.getContext(), R.color.gray));
             //button11.setBackgroundColor(ContextCompat.getColor(v.getContext(), R.color.yellow));
 
-        }
+        } // end on click
     };
 
 

@@ -1,5 +1,7 @@
 package com.example.twitxclone.model;
 
+import com.google.firebase.database.DatabaseReference;
+
 public class Word {
 
     public static final String WORD_KEY  = "WORDV";
@@ -7,6 +9,7 @@ public class Word {
     String word;
 
     public Word() {}
+    DatabaseReference database;
 
     public Word(String word) { this.word = word; }
 
@@ -28,4 +31,5 @@ public class Word {
                 "word='" + word + '\'' +
                 '}';
     }
+
 }
