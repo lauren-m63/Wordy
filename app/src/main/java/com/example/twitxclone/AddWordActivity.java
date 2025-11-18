@@ -41,22 +41,27 @@ public class AddWordActivity extends AppCompatActivity {
     View.OnClickListener listener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            String input = wordInput.getText().toString().trim(); // gets input
+            if (wordInput!= null){
+                String input = wordInput.getText().toString().trim(); // gets input
 
-            if (input.length() == 5 && input.matches("^[A-Za-z]+$")) {
-                DatabaseReference wordsRef = database.getReference("words");
 
-                Word word = new Word();
-                word.setWord(input.toLowerCase());
+                if (input.length() == 5 && input.matches("^[A-Za-z]+$")) {
+                    DatabaseReference wordsRef = database.getReference("words");
 
-                wordsRef.push().setValue(word); //this is what adds it to database in the column words
+                    Word word = new Word();
+                    word.setWord(input.toLowerCase());
 
-                Toast.makeText(AddWordActivity.this, "Word added!", Toast.LENGTH_SHORT).show();
+                    wordsRef.push().setValue(word); //this is what adds it to database in the column words
 
-                wordInput.setText(""); // clear input after submission
-            } else {
-                Toast.makeText(AddWordActivity.this, "Word must be 5 letters- no numbers or other symbols", Toast.LENGTH_SHORT).show();
-            }
+                    Toast.makeText(AddWordActivity.this, "Word added!", Toast.LENGTH_SHORT).show();
+
+                    wordInput.setText(""); // clear input after submission
+                } else {
+                    Toast.makeText(AddWordActivity.this, "Word must be 5 letters- no numbers or other symbols", Toast.LENGTH_SHORT).show();
+                }
+            } // end if
+
+
         }
     };// end listener
 
