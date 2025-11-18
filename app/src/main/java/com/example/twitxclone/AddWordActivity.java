@@ -41,9 +41,9 @@ public class AddWordActivity extends AppCompatActivity {
     View.OnClickListener listener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            String input = wordInput.getText().toString().trim(); // FIXED
+            String input = wordInput.getText().toString().trim(); // gets input
 
-            if (input.length() == 5) {
+            if (input.length() == 5 && input.matches("^[A-Za-z]+$")) {
                 DatabaseReference wordsRef = database.getReference("words");
 
                 Word word = new Word();
@@ -55,7 +55,7 @@ public class AddWordActivity extends AppCompatActivity {
 
                 wordInput.setText(""); // clear input after submission
             } else {
-                Toast.makeText(AddWordActivity.this, "Word must be 5 letters", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddWordActivity.this, "Word must be 5 letters- no numbers or other symbols", Toast.LENGTH_SHORT).show();
             }
         }
     };// end listener
